@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="card" style="width: 50rem;">
+        <div class="card-header bg-primary btn btn-primary" *ngIf="mode==1">
+            Ajouter un Contact
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="">Nom: </label>
+                <input type="text" [(ngModel)]="contact.nom" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="">Prenom: </label>
+                <input type="text" [(ngModel)]="contact.prenom" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="">Email: </label>
+                <input type="email" [(ngModel)]="contact.email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="">Photo: </label>
+                <input type="file" [(ngModel)]="contact.photo" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="">Telephone: </label>
+                <input type="tel" [(ngModel)]="contact.tel" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="">DateNaissance: </label>
+                <input type="date" [(ngModel)]="contact.dateNaissance" class="form-control" required>
+            </div>
+            <button class="btn btn-primary" (click)="savecontact()">
+                Valider
+            </button>
+        </div>
+    </div>
+</div>

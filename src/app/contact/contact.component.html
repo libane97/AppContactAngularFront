@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="card" style="width: 50rem;">
+        <div class="card-header bg-primary btn btn-primary">
+            Liste des contact
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="search">Rechercher</label>
+                <input type="text" class="form-control mb-2" [(ngModel)]="motCle">
+                <button class="btn btn-primary" (click)="search()">Search</button>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Prenom</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Date de Naissance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let r of data | slice: pageSize | slice: 0:itemsPerPage">
+                        <th scope=" col ">{{r.id }}</th>
+                        <th scope="col ">{{r.nom }}</th>
+                        <th scope="col ">{{r.prenom }}</th>
+                        <th scope="col ">{{r.email }}</th>
+                        <th scope="col " class="badge badge-primary">{{r.dateNaissance }}</th>
+                        <th scope="col">
+                            <button class="btn btn-primary" (click)="onedite(r.id)">Editer</button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-danger" (click)="ondelete(r.id)">Supprime</button>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="col-6 input-group">
+                <div class="col-5 input-group-addon">
+                    <ngb-pagination [collectionSize]="data.length" #numPages [pageSize]="itemsPerPage" [(page)]="currentPage" (pageChange)="onPageChange(currentPage)"></ngb-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
